@@ -50,7 +50,7 @@ export default function Leaderboard() {
           </div>
         </div>
         <h1 className="text-4xl font-bold mb-2">Leaderboard</h1>
-        <p className="text-muted-foreground">The top manga and creators on MangaVerse</p>
+        <p className="text-muted-foreground">The top manga and creators on Surituk</p>
       </div>
 
       {/* Period toggle */}

@@ -6,8 +6,8 @@ type InfoSection = { title: string; content: React.ReactNode };
 
 const pages: Record<string, { heading: string; intro: string; sections: InfoSection[] }> = {
   about: {
-    heading: "About MangaVerse",
-    intro: "MangaVerse is a global manga reading platform built for readers, creators, and community — a complete ecosystem for discovering stories, growing audiences, and earning revenue.",
+    heading: "About Surituk",
+    intro: "Surituk is a global manga reading platform built for readers, creators, and community — a complete ecosystem for discovering stories, growing audiences, and earning revenue.",
     sections: [
       { title: "Our Mission", content: "To empower manga creators worldwide with fair revenue sharing, transparent analytics, and a passionate global readership. We believe every great story deserves a great audience." },
       { title: "For Readers", content: "Access thousands of manga across every genre. Track your progress, earn reading points, participate in contests, and connect with fellow fans in our community." },
@@ -37,17 +37,17 @@ const pages: Record<string, { heading: string; intro: string; sections: InfoSect
   },
   terms: {
     heading: "Terms & Conditions",
-    intro: "By using MangaVerse, you agree to these terms. Please read them carefully.",
+    intro: "By using Surituk, you agree to these terms. Please read them carefully.",
     sections: [
-      { title: "Eligibility", content: "You must be at least 13 years old to use MangaVerse. If you are under 18, you must have parental consent. By creating an account, you confirm you meet these requirements." },
+      { title: "Eligibility", content: "You must be at least 13 years old to use Surituk. If you are under 18, you must have parental consent. By creating an account, you confirm you meet these requirements." },
       { title: "User Conduct", content: "You agree not to upload content you don't own, harass other users, attempt to hack or disrupt the platform, or use automated tools to access the service without permission." },
-      { title: "Creator Agreement", content: "Creators retain full ownership of their work. By uploading to MangaVerse, you grant us a non-exclusive license to display and distribute your content on the platform. You may remove your content at any time." },
-      { title: "Revenue & Payments", content: "Creator revenue is calculated monthly and paid within 30 days of the end of each period. MangaVerse takes a 30% platform fee. Detailed revenue policies are in the Creator Revenue Policy." },
+      { title: "Creator Agreement", content: "Creators retain full ownership of their work. By uploading to Surituk, you grant us a non-exclusive license to display and distribute your content on the platform. You may remove your content at any time." },
+      { title: "Revenue & Payments", content: "Creator revenue is calculated monthly and paid within 30 days of the end of each period. Surituk takes a 30% platform fee. Detailed revenue policies are in the Creator Revenue Policy." },
     ],
   },
   dmca: {
     heading: "DMCA Policy",
-    intro: "MangaVerse respects intellectual property rights and expects our users to do the same.",
+    intro: "Surituk respects intellectual property rights and expects our users to do the same.",
     sections: [
       { title: "Filing a Notice", content: "If you believe your copyrighted work has been uploaded without permission, send a DMCA notice to legal@mangaverse.io with: your contact information, identification of the copyrighted work, identification of the infringing material, and a statement of good faith belief." },
       { title: "Counter-Notification", content: "If you believe your content was removed in error, you may file a counter-notification. We will restore the content within 10-14 business days unless the original complainant files for a court order." },

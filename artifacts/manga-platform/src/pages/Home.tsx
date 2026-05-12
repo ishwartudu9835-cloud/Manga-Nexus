@@ -34,9 +34,9 @@ export default function Home() {
   const heroManga = featured?.[0];
 
   return (
-    <div className="flex flex-col gap-16 pb-16">
+    <div className="flex flex-col gap-10 md:gap-16 pb-12 md:pb-16">
       {/* Hero Section */}
-      <section className="relative h-[80vh] w-full overflow-hidden">
+      <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] w-full overflow-hidden">
         {heroManga ? (
           <>
             <div className="absolute inset-0 z-0">
@@ -49,34 +49,34 @@ export default function Home() {
               />
             </div>
             
-            <div className="container relative z-20 h-full flex flex-col justify-end pb-24 px-4">
+            <div className="container relative z-20 h-full flex flex-col justify-end pb-12 md:pb-24 px-4">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 className="max-w-2xl"
               >
-                <Badge className="mb-4 bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 px-3 py-1">
+                <Badge className="mb-3 bg-primary/20 text-primary border-primary/30 hover:bg-primary/30 px-3 py-1">
                   <Sparkles className="w-3 h-3 mr-2" /> Featured
                 </Badge>
-                <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight leading-tight">
+                <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-3 tracking-tight leading-tight">
                   {heroManga.title}
                 </h1>
-                <p className="text-lg md:text-xl text-muted-foreground mb-8 line-clamp-3">
+                <p className="text-sm sm:text-lg md:text-xl text-muted-foreground mb-5 line-clamp-2 md:line-clamp-3">
                   {heroManga.description}
                 </p>
-                <div className="flex items-center gap-4 mb-8 text-sm text-muted-foreground font-medium">
-                  <span className="flex items-center"><Flame className="w-4 h-4 mr-1 text-accent" /> {heroManga.views.toLocaleString()} views</span>
+                <div className="flex flex-wrap items-center gap-3 mb-5 text-xs sm:text-sm text-muted-foreground font-medium">
+                  <span className="flex items-center"><Flame className="w-3.5 h-3.5 mr-1 text-accent" /> {heroManga.views.toLocaleString()} views</span>
                   <span>•</span>
                   <span>{heroManga.genre}</span>
                   <span>•</span>
                   <span className="capitalize">{heroManga.status}</span>
                 </div>
-                <div className="flex gap-4">
-                  <Button asChild size="lg" className="h-12 px-8 bg-primary hover:bg-primary/90 text-white font-semibold">
+                <div className="flex gap-3">
+                  <Button asChild size="lg" className="h-10 sm:h-12 px-5 sm:px-8 bg-primary hover:bg-primary/90 text-white font-semibold text-sm sm:text-base">
                     <Link href={`/manga/${heroManga.id}`}>Read Now</Link>
                   </Button>
-                  <Button asChild size="lg" variant="outline" className="h-12 px-8 border-white/20 hover:bg-white/10">
+                  <Button asChild size="lg" variant="outline" className="h-10 sm:h-12 px-5 sm:px-8 border-white/20 hover:bg-white/10 text-sm sm:text-base">
                     <Link href={`/creator/${heroManga.creatorId}`}>View Creator</Link>
                   </Button>
                 </div>
@@ -91,7 +91,7 @@ export default function Home() {
       {/* Stats Bar */}
       {stats && (
         <section className="container px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl bg-secondary/50 border border-white/5 backdrop-blur-sm">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 p-4 md:p-6 rounded-2xl bg-secondary/50 border border-white/5 backdrop-blur-sm">
             <div className="flex flex-col items-center justify-center text-center p-4">
               <BookOpen className="w-6 h-6 text-primary mb-2 opacity-80" />
               <div className="text-2xl font-bold">{stats.totalManga.toLocaleString()}</div>
@@ -152,7 +152,7 @@ export default function Home() {
 
       {/* Main Content Grid */}
       <section className="container px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           <div className="lg:col-span-2 space-y-12">
             
             {/* New Releases */}

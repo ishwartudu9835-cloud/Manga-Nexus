@@ -77,22 +77,22 @@ export default function CreatorDashboard() {
 
   if (creatorLoading) {
     return (
-      <div className="flex min-h-screen">
-        <div className="w-56 border-r border-white/10 p-4 space-y-2">
+      <div className="flex flex-col md:flex-row min-h-screen">
+        <div className="hidden md:block w-56 border-r border-white/10 p-4 space-y-2">
           {Array.from({ length: 5 }).map((_, i) => <Skeleton key={i} className="h-10 rounded-lg" />)}
         </div>
-        <div className="flex-1 p-8 space-y-6">
+        <div className="flex-1 p-4 md:p-8 space-y-6">
           <Skeleton className="h-8 w-64" />
-          <div className="grid grid-cols-4 gap-4">{Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-24 rounded-xl" />)}</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">{Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-24 rounded-xl" />)}</div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <aside className="w-56 shrink-0 border-r border-white/10 bg-card/20 p-4 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
+    <div className="flex flex-col md:flex-row min-h-screen">
+      {/* Sidebar — desktop only */}
+      <aside className="hidden md:flex w-56 shrink-0 flex-col border-r border-white/10 bg-card/20 p-4 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto">
         <div className="mb-6">
           <p className="text-xs text-muted-foreground uppercase tracking-widest mb-2">Creator Studio</p>
           {creator && (
@@ -122,8 +122,24 @@ export default function CreatorDashboard() {
         </nav>
       </aside>
 
+      {/* Mobile tab bar */}
+      <div className="md:hidden border-b border-white/10 bg-card/30 sticky top-16 z-40">
+        <div className="flex overflow-x-auto scrollbar-hide px-2">
+          {sidebarItems.map(item => (
+            <button
+              key={item.id}
+              onClick={() => setActiveSection(item.id)}
+              className={`flex items-center gap-1.5 px-3 py-3 text-xs font-medium whitespace-nowrap border-b-2 transition-all shrink-0 ${activeSection === item.id ? "border-primary text-primary" : "border-transparent text-muted-foreground"}`}
+              data-testid={`nav-${item.id}`}
+            >
+              {item.icon} {item.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Main */}
-      <main className="flex-1 p-6 md:p-8 overflow-y-auto">
+      <main className="flex-1 p-4 md:p-8 overflow-y-auto">
         {/* Overview */}
         {activeSection === "overview" && (
           <div>
@@ -298,7 +314,7 @@ export default function CreatorDashboard() {
         {activeSection === "revenue" && revenue && (
           <div>
             <h1 className="text-2xl font-bold mb-6">Revenue</h1>
-            <div className="grid grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
               {[
                 { label: "Total Revenue", value: `$${revenue.totalRevenue.toFixed(2)}`, color: "text-green-400" },
                 { label: "Ad Revenue", value: `$${revenue.adsRevenue.toFixed(2)}`, color: "text-blue-400" },
